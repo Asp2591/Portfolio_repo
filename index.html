@@ -2,117 +2,173 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio | Atharva Patkar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
   <style>
+    /* Global reset & no horizontal scroll */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
     body {
-      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Dark, programmer style */
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Fira Code', monospace;
       scroll-behavior: smooth;
+    }
+
+    #about a:hover i {
+      color: #9c7ada;
+      /* Purple hover */
+      transform: scale(1.2);
+      transition: all 0.3s ease-in-out;
+    }
+
+    a,
+    .nav-link {
+      color: #8ee6f8;
+    }
+
+    a:hover,
+    .nav-link:hover {
+      color: #ebf0f4;
+    }
+
+    .navbar-dark {
+      background: #02065a;
+    }
+
+    .nav-link:hover {
+      background-color: #21262d;
+      color: #e0e4e9 !important;
+      border: 1px solid #30363d;
+    }
+
+    .bg-light {
+      background: #74849c !important;
+    }
+
+    .btn-purple {
+      background: #58a6ff;
+      color: #0d1117;
+    }
+
+    .btn-purple:hover {
+      background: #79c0ff;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    #home img {
+      border: 3px solid #30363d;
+      object-fit: contain;
     }
 
     h1,
     .display-4 {
-      font-size: 2.2rem;
-      /* Default for mobile */
+      color: #58a6ff;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+      color: #79c0ff;
+      margin-bottom: 1rem;
     }
-
-    p,
-    li,
-    .lead {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    @media (min-width: 576px) {
-
-      h1,
-      .display-4 {
-        font-size: 2.8rem;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      p,
-      li,
-      .lead {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (min-width: 768px) {
-
-      h1,
-      .display-4 {
-        font-size: 3.2rem;
-      }
-
-      h2 {
-        font-size: 2.2rem;
-      }
-
-      p,
-      li,
-      .lead {
-        font-size: 1.2rem;
-      }
-    }
-
-    section {
-      padding: 60px 0;
-    }
-
-    footer {
-      background: #343a40;
-      color: white;
-      padding: 20px 0;
-    }
-
-    input,
-    textarea,
-    button {
-      font-size: 1rem;
-      padding: 0.75rem;
-    }
-
 
     .skill-card {
-      background-color: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      color: #fff;
+      background: #161b22;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      transition: transform 0.2s;
     }
 
     .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+      border-color: #58a6ff;
     }
 
-    .skill-icon {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
+    .card {
+      background: #161b22;
+      border-color: #30363d;
+    }
+
+    .card-title,
+    .card-text {
+      color: #c9d1d9;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+      background: #161b22;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, .5);
+    }
+
+    footer {
+      background: #161b22;
+      color: #8b949e;
+      padding: 2rem 0;
+    }
+
+    .nav-link {
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+    }
+
+    #projects .card-img-top {
+      max-height: 150px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 576px) {
+      #projects .card-title {
+        font-size: 1rem;
+      }
+
+      #projects .card-text {
+        font-size: 0.85rem;
+      }
+
+      #projects .btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.75rem;
+      }
     }
   </style>
-
 </head>
 
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container px-4 px-md-5">
-      <a class="navbar-brand" href="#home">My Portfolio</a>
+      <a class="navbar-brand" href="#home">Atharva Patkar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -130,173 +186,246 @@
   </nav>
 
   <!-- Home -->
-  <section id="home" class="text-center bg-light" data-aos="fade-up">
-    <div class="container pt-5">
-      <h1 class="display-4">Hi, I'm Atharva Patkar</h1>
-      <p class="lead">Python Developer | DevOps Engineer | Data Scientist</p>
-      <a href="./sample.pdf" class="btn btn-outline-dark mt-3" download>Download Resume</a>
+  <section id="home" class="py-5 mt-5" data-aos="fade-up">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
+        <!-- Left Column: Profile Image -->
+        <div class="col-md-4 mb-4 mb-md-0">
+          <img src="myPicture.jpg" alt="Atharva Patkar" class="img-fluid rounded-circle shadow" width="200"
+            height="200">
+        </div>
+
+        <!-- Right Column: Text Content -->
+        <div class="col-md-8">
+          <h1 class="display-4">Hi, I'm Atharva Patkar</h1>
+          <p class="lead">Python Developer | DevOps Engineer | Data Scientist</p>
+          <a href="./sample.pdf" class="btn btn-purple mt-3" download>Download Resume</a>
+        </div>
+      </div>
     </div>
   </section>
+
 
   <!-- About -->
   <section id="about" data-aos="fade-right">
     <div class="container">
-      <h2>About Me</h2>
-      <p>I am a B.Tech fresher passionate about Python programming and UI/UX design. I enjoy building responsive and
-        interactive web applications and exploring creative design ideas.</p>
+      <h2 class="text-center mb-4" style="color: #58a6ff;">🙋‍♂️ About Me</h2>
+      <div class="card shadow-lg p-4 border-0 rounded" style="background-color: #fff; color: #000;">
+        <div class="card-body">
+          <p style="text-align: center;">••• ••• •••  </p>
 
-      <div class="row mt-4">
-        <div class="col-md-6 mb-3">
-          <ul class="list-unstyled">
-            <li><strong>📍 Address:</strong> Sangli, Maharashtra</li>
-            <li><strong>🎂 Birthday:</strong> 1st January 2002</li>
-            <li><strong>🎓 Degree:</strong> B.Tech in Computer Science</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul class="list-unstyled">
-            <li><strong>📧 Email:</strong> youremail@example.com</li>
-            <li><strong>🏙️ City:</strong> Sangli</li>
-          </ul>
+          <p class="card-text text-center text-dark" style="color: #000;">
+            Hi, I'm <b>Atharva Patkar — a B.Tech graduate in Electronics & Telecommunication</b> with a deep passion for
+            DevOps, AI/ML, Data Science, and Cloud Computing. Despite coming from a non-CS background, I’ve consistently
+            upskilled through hands-on, self-driven projects that blend automation, intelligent systems, and scalable
+            cloud infrastructure.
+          </p>
+          <p class="card-text text-center text-dark" style="color: #000;">
+            I enjoy building solutions that bridge the gap between smart algorithms and real-world deployment — from
+            automating cloud provisioning with face recognition to crafting LLM-powered applications. My toolkit
+            includes tools like AWS, Docker, Terraform, Kubernetes, and modern ML stacks.
+          </p>
+          <p class="card-text text-center text-dark" style="color: #000;">
+            I'm driven by <b>curiosity, adaptability, and a strong desire</b> to contribute to meaningful tech
+            innovations.
+          </p>
+          <p style="text-align: center;">✦✦✦ ✦✦✦ ✦✦✦ </p>
+          <div class="row mt-4">
+            <div class="col-md-6 mb-3">
+              <ul class="list-unstyled text-dark" style="color: #000;">
+                <li><strong>📍 Address:</strong> Gaonbhag,Sangli, Maharashtra</li>
+                <li><strong>🎂 Birthday:</strong> 25 Sept 2001</li>
+                <li><strong>🎓 Degree:</strong> B.Tech ENTC</li>
+              </ul>
+            </div>
+
+            <div class="col-md-6">
+              <ul class="list-unstyled text-dark" style="color: #000;">
+                <li><strong>📧 Email:</strong> patkaratharva75@gmail.com</li>
+                <li><strong>🏙️ City:</strong> Sangli</li>
+              </ul>
+            </div>
+          </div>
+          <p style="text-align: center;">✦✦✦ ✦✦✦ ✦✦✦ </p>
+
+          <!-- Social Media Icons -->
+          <div class="text-center mt-4">
+            <h5 class="text-dark" style="color: #000;">Connect with Me</h5>
+            <a href="http://www.linkedin.com/in/atharva--patkar" target="_blank" class="mx-2 text-dark"
+              style="color: #000000;">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/aspatkar_2591/" target="_blank" class="mx-2 text-dark"
+              style="color: #000;">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://medium.com/@atharvapatkar" target="_blank" class="mx-2 text-dark" style="color: #000;">
+              <i class="fab fa-medium fa-2x"></i>
+            </a>
+            <a href="https://github.com/Asp2591" target="_blank" class="mx-2 text-dark" style="color: #000;">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- Skills -->
-  <section id="skills" class="py-5" style="background: linear-gradient(135deg, #e0c3fc, #8ec5fc);" data-aos="fade-left">
+  <section id="skills" data-aos="fade-left">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold text-white">Skills</h2>
-      <div class="row g-4 justify-content-center text-center">
-
+      <h2 class="text-center mb-5">🛠️ Skills</h2>
+      <div class="row g-4 justify-content-center">
         <div class="col-6 col-md-3">
           <div class="skill-card p-4 rounded shadow-sm h-100">
-            <img src="images/icons/python.svg" alt="Python" class="skill-icon mb-2">
-            <h5 class="mb-0">Python</h5>
+            <h5>Python</h5>
+            <small>Core · OOP</small>
           </div>
         </div>
-
         <div class="col-6 col-md-3">
           <div class="skill-card p-4 rounded shadow-sm h-100">
-            <img src="images/icons/cloud.svg" alt="Cloud" class="skill-icon mb-2">
-            <h5 class="mb-0">Cloud Computing</h5>
+            <h5>DevOps</h5>
+            <small>Docker · K8s · Terraform · Jenkins</small>
           </div>
         </div>
-
         <div class="col-6 col-md-3">
           <div class="skill-card p-4 rounded shadow-sm h-100">
-            <img src="images/icons/devops.svg" alt="DevOps" class="skill-icon mb-2">
-            <h5 class="mb-0">DevOps</h5>
+            <h5>Cloud</h5>
+            <small>AWS · CI/CD</small>
           </div>
         </div>
-
         <div class="col-6 col-md-3">
           <div class="skill-card p-4 rounded shadow-sm h-100">
-            <img src="images/icons/data.svg" alt="Data Science" class="skill-icon mb-2">
-            <h5 class="mb-0">Data Science</h5>
+            <h5>Data Science</h5>
+            <small>ML · DL · LLM · GenAI · RAG</small>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
 
   <!-- Projects -->
-  <section id="projects" class="p-5">
+  <section id="projects" class="bg-gray-600 " data-aos="zoom-in">
     <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row">
-        <!-- Project Cards -->
-        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in">
-          <div class="card h-100 shadow">
-            <img src="./images/infraFace.png" class="card-img-top img-fluid" alt="Project 1 Image">
+      <h2 class="text-center mb-5">📂 Projects</h2>
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="images/infraFace.png" class="card-img-top" alt="Portfolio Website">
             <div class="card-body">
-              <h5 class="card-title">Portfolio Website</h5>
-              <p class="card-text">A responsive personal portfolio website built with Bootstrap and AOS animations.</p>
-              <a href="#" class="btn btn-primary">View Project</a>
+              <h5 class="card-title">Cloud Infra Automation with Face </h5>
+              <p class="card-text">"Used facial recognition as a security layer to automate AWS infrastructure
+                provisioning with Terraform.”</p>
+              <a href="https://github.com/Asp2591/Infrastructure_automation_with_faceRecognizer"
+                class="btn btn-purple">View</a>
             </div>
+          </div>
+        </div>
+        <!-- Copy more cards if needed -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="images/Image_analyzer.png" class="card-img-top" alt="Portfolio Website">
+            <div class="card-body">
+              <h5 class="card-title">Image Analyzer Telegram Bot</h5>
+              <p class="card-text">"Telegram bot having capability to analysis and summarize a image."</p>
+              <a href="https://github.com/Asp2591/telegram_bot_with_AI_agent" class="btn btn-purple">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="images/logomaker.png" class="card-img-top" alt="Portfolio Website">
+            <div class="card-body">
+              <h5 class="card-title">Logo Maker LLm</h5>
+              <p class="card-text">"Built an AI-powered logo generator using prompt engineering, FastAPI, and a
+                CI/CD-ready Docker pipeline"</p>
+              <a href="https://github.com/Asp2591/LogoMakerLLM" class="btn btn-purple">View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="images/querycraft.png" class="card-img-top" alt="Portfolio Website">
+            <div class="card-body">
+              <h5 class="card-title">AI powered SQL geneartion</h5>
+              <p class="card-text">"Bridged natural language to SQL using Gemini-Pro and FastAPI, deployed on Azure for
+                enterprise data access.”</p>
+              <a href="https://github.com/Asp2591/Prompt-to-SQL-to-HumanReadable-with-snowflake"
+                class="btn btn-purple">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" data-aos="fade-right">
+    <div class="container">
+      <h2 class="text-center mb-5">📜 Certifications</h2>
+      <div class="row g-4 justify-content-center">
+
+        <!-- Certification Card -->
+        <div class="col-12 col-md-4">
+          <div class="skill-card p-4 rounded shadow-sm h-100 bg-dark text-white border border-secondary">
+            <h5>Python for Beginners course in-depth</h5>
+            <a href="https://www.udemy.com/certificate/UC-bf3ea3be-ca2b-40a4-b8e1-0a974c0b798e/" target="_blank"
+              class="btn btn-outline-light btn-sm mt-2">View Certificate</a>
           </div>
         </div>
 
-        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in">
-          <div class="card h-100 shadow">
-            <img src="./images/Image_analyzer.png" class="card-img-top img-fluid" alt="Project 2 Image">
-            <div class="card-body">
-              <h5 class="card-title">Weather App</h5>
-              <p class="card-text">Weather forecast app using JS & APIs for real-time weather data.</p>
-              <a href="#" class="btn btn-primary">View Project</a>
-            </div>
+        <div class="col-12 col-md-4">
+          <div class="skill-card p-4 rounded shadow-sm h-100 bg-dark text-white border border-secondary">
+            <h5>Data Analysis with Python</h5>
+            <a href="https://courses.cognitiveclass.ai/certificates/fa2297a54795462dac71e1b74efb2901" target="_blank"
+              class="btn btn-outline-light btn-sm mt-2">View Certificate</a>
           </div>
         </div>
 
-        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in">
-          <div class="card h-100 shadow">
-            <img src="./images/logomaker.png" class="card-img-top img-fluid" alt="Project 3 Image">
-            <div class="card-body">
-              <h5 class="card-title">Task Tracker</h5>
-              <p class="card-text">Manage daily to-dos using JavaScript and local storage.</p>
-              <a href="#" class="btn btn-primary">View Project</a>
-            </div>
+        <div class="col-12 col-md-4">
+          <div class="skill-card p-4 rounded shadow-sm h-100 bg-dark text-white border border-secondary">
+            <h5>Accenture NA - Data Analysis & Visualization Simulation</h5>
+            <a href="https://drive.google.com/file/d/1gQUNCJI62GCaaBa6r8jte3JCP2JRZIcN/view" target="_blank"
+              class="btn btn-outline-light btn-sm mt-2">View Certificate</a>
           </div>
         </div>
 
-        <div class="col-sm-6 col-lg-3 mb-4" data-aos="zoom-in">
-          <div class="card h-100 shadow">
-            <img src="./images/querycraft.png" class="card-img-top img-fluid" alt="Project 4 Image">
-            <div class="card-body">
-              <h5 class="card-title">QueryCraft</h5>
-              <p class="card-text">LLM-powered SQL assistant with Gemini and Snowflake integration.</p>
-              <a href="#" class="btn btn-primary">View Project</a>
-            </div>
-          </div>
-        </div>
+        <!-- Add more cards as needed -->
 
       </div>
     </div>
   </section>
 
-  <!-- Certifications -->
-  <section id="certifications" class="bg-light" data-aos="fade-right">
-    <div class="container">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Python for Everybody - Coursera</li>
-        <li>React Basics - FreeCodeCamp</li>
-      </ul>
-    </div>
-  </section>
 
   <!-- Contact -->
   <section id="contact" data-aos="fade-up">
     <div class="container">
-      <h2>Contact Me</h2>
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">Your Name</label>
-          <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+      <h2 class="text-center mb-4">📞 Contact Me</h2>
+      <form class="contact-form row g-3" action="https://formspree.io/f/mnqwykyl" method="POST">
+        <div class="col-md-6">
+          <input type="text" name="name" class="form-control" placeholder="Your Name" required>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+        <div class="col-md-6">
+          <input type="email" name="email" class="form-control" placeholder="Your Email" required>
         </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea id="message" class="form-control" rows="4" required></textarea>
+        <div class="col-12">
+          <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-dark">Send Message</button>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-purple px-5">Send Message</button>
+        </div>
       </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center">
+  <footer class="text-center mt-5">
     <div class="container">
-      <p>© 2025 My Portfolio | Made with ❤️ in Sangli</p>
+      <p>&copy; 2025 Atharva Patkar</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
